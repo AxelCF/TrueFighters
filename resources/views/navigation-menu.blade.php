@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-neutral-800 border-b border-red-600 fixed w-full">
+<nav x-data="{ open: false }" class="bg-neutral-800 border-b border-red-600 fixed top-0 w-full z-50">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -11,16 +11,16 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
+                    <x-jet-nav-link class="text-white" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-jet-nav-link class="text-white" href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Article') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('twitch') }}" :active="request()->routeIs('twitch')">
+                    <x-jet-nav-link class="text-white" href="{{ route('twitch') }}" :active="request()->routeIs('twitch')">
                         {{ __('Twitch') }}
                     </x-jet-nav-link>
                 </div>
@@ -83,7 +83,7 @@
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                            <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else

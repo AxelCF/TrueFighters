@@ -6,7 +6,7 @@
         </h2>
     </x-slot> --}}
 
-    <div class="overflow-x-hidden bg-neutral-800">
+    <div class="overflow-x-hidden">
 
         <div class="px-6 py-8 mt-20">
             <div class="container flex justify-between mx-auto">
