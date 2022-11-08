@@ -12,15 +12,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
-                    <x-jet-nav-link class="text-white" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link class="text-white" href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Article') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link class="text-white" href="{{ route('twitch') }}" :active="request()->routeIs('twitch')">
+                    <x-jet-nav-link href="{{ route('twitch') }}" :active="request()->routeIs('twitch')">
                         {{ __('Twitch') }}
                     </x-jet-nav-link>
                 </div>

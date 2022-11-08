@@ -21,16 +21,16 @@ Route::get('/twitch', function (){
     return view('stream.twitch');
 })->name('twitch');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', function () {
+    return view('dashboard');
+})->name('dashboard');
 Route::middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
+    // config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 });

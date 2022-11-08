@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category', 'user')->orderBy('created_at', 'DESC')->get();
+        $posts = Post::with('category', 'user')->orderBy('created_at', 'DESC')->paginate(5);
 
         $authors = Post::join('users', 'users.id', 'posts.user_id')->select('name', 'profile_photo_path', Post::raw('count("posts.user_id") AS post'))->groupBy('posts.user_id')->orderBy('name')->get();
 

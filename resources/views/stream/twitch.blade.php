@@ -9,7 +9,7 @@
             </div>
 
             <div class="xs:flex xs:justify-center lg:block">
-                <iframe class="lg:fixed right-0 bottom-0 h-[calc(100%_-_66px)] sm:w-11/12 lg:w-2/6 xs:w-full" id="twitch-chat-embed "
+                <iframe class="lg:fixed right-0 bottom-0 h-[calc(100%_-_63px)] sm:w-11/12 lg:w-2/6 xs:w-full" id="twitch-chat-embed "
                 src="https://www.twitch.tv/embed/esl_csgo/chat?darkpopout&parent=127.0.0.1&parent=localhost"
                 width="340px">
                 
