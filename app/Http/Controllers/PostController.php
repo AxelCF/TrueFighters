@@ -9,26 +9,32 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
+use App\Repositories\PostRepositoryEloquent;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected $repository;
+
+    public function __construct(PostRepositoryEloquent $postRepository){
+        $this->repository = $postRepository;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('category', 'user')->orderBy('created_at', 'DESC')->paginate(5);
-
-        $authors = Post::join('users', 'users.id', 'posts.user_id')->select('name', 'profile_photo_path', Post::raw('count("posts.user_id") AS post'))->groupBy('posts.user_id')->orderBy('name')->get();
-
-        $categories = Post::join('categories', 'categories.id', 'posts.category_id')->select('name')->groupBy('posts.category_id')->orderBy('name')->get();
-
+        $posts = $this->repository
+                      ->with(['category', 'user'])
+                      ->orderBy('created_at')
+                      ->paginate(5);
+                      
+        $authors = Post::join('users', 'users.id', 'posts.user_id')->select('users.id','name', 'profile_photo_path', Post::raw('count("posts.user_id") AS post'))->groupBy('posts.user_id')->orderBy('name')->get();
+        $categories = Post::join('categories', 'categories.id', 'posts.category_id')->select('categories.id','name')->groupBy('posts.category_id')->orderBy('name')->get();
         $lastPost = Post::with('category', 'user')->orderBy('created_at', 'DESC')->limit(1)->get();
-
-        
-
 
         return view('post.index', compact('posts', 'authors', 'categories', 'lastPost'));
     }

@@ -21,4 +21,5 @@
             </svg></a>
         </div>
     </div>
+    @stack('scripts')
 </footer>
