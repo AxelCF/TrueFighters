@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     searchSubmit.addEventListener("click", (e) => {
         e.preventDefault();
         if (searchSelect.value) {
-            window.location.href = `/articles?search=title:${searchInput.value}&searchFields=title:like&sortedBy=${searchSelect.value}`;
+            window.location.href = `/articles?search=title:${searchInput.value}&searchFields=title:like&orderBy=posts.created_at&sortedBy=${searchSelect.value}`;
         } else {
             window.location.href = `/articles?search=title:${searchInput.value}&searchFields=title:like;`;
         }
