@@ -29,7 +29,7 @@ class PostController extends Controller
     {
         $posts = $this->repository
                       ->with(['category', 'user'])
-                      ->orderBy('id', 'desc')
+                    //   ->orderBy('created_at', 'desc')
                       ->paginate(5);
                       
         $authors = Post::join('users', 'users.id', 'posts.user_id')->select('users.id','name', 'profile_photo_path', Post::raw('count("posts.user_id") AS post'))->groupBy('posts.user_id')->orderBy('name')->get();

@@ -16,6 +16,7 @@
                         <form id='filter-form' class="flex justify-between">
                             <input id="search_input" name="title" type="text" class="mx-5" placeholder="Rechercher un article">
                             <select id="search_select" name='created_at' class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="">Filter</option>
                                 <option value="desc">Newest</option>
                                 <option value="asc">Oldest</option>
                             </select>
