@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +23,28 @@ Route::get('/twitch', function (){
     return view('stream.twitch');
 })->name('twitch');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware([
+    'admin'
+    ])->group(function () {
+        Route::get('/admin', function () {
+            return view('admin.admin');
+    })->name('admin');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', function () {
+    return view('dashboard');
+})->name('dashboard');
+// Route::middleware([
+//     'auth:sanctum',
+//     'admin',
+//     // config('jetstream.auth_session'),
+//     'verified'
+//     ])->group(function () {
+//         Route::get('/admin', function () {
+//             return view('admin.index');
+//     })->name('admin');
+// }); 

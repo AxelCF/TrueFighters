@@ -1,13 +1,13 @@
 <div class="hidden w-4/12 -mx-8 lg:block">
     <div class="px-8">
         <h1 class="mb-4 text-xl font-bold text-neutral-50">Auteurs</h1>
-        <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-indigo-900 rounded-lg shadow-md">
+        <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-stone-600 rounded-lg shadow-md">
             <ul class="-mx-4">
                 @foreach ($authors as $author)
                     <li class="flex items-center py-1 "><img
                         src={{ $author->profile_photo_path ?? 'https://ui-avatars.com/api/?name=?&color=7F9CF5&background=EBF4FF' }}
                         alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
-                    <p><a href="#" class="mx-1 font-bold text-white hover:underline">{{ ucfirst($author->name) }}</a><span
+                    <p><a href="/articles?page=1&search=user.id:{{ $author->id }}" class="mx-1 font-bold text-white hover:underline">{{ ucfirst($author->name) }}</a><span
 
                             class="text-sm font-light text-white">a créé {{ $author->post }} Article(s)</span></p>
                 </li>
@@ -18,13 +18,12 @@
     </div>
     <div class="px-8 mt-10">
         <h1 class="mb-4 text-xl font-bold text-neutral-50">Categories</h1>
-        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-indigo-900 rounded-lg shadow-md">
+        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-stone-600 rounded-lg shadow-md">
             <ul>
                 @foreach ($categories as $category)
-                    <li><a href="#" class="mx-1 font-bold text-white hover:text-gray-600 hover:underline">-
+                    <li><a href="/articles?page=1&search=category.id:{{ $category->id }}" class="mx-1 font-bold text-white hover:text-gray-600 hover:underline">-
                         {{ $category->name }}</a></li>
                 @endforeach
-                
             </ul>
         </div>
     </div>
@@ -33,7 +32,7 @@
 
         @foreach ($lastPost as $post)
             
-        <div class="flex flex-col max-w-sm px-8 py-6 mx-auto bg-indigo-900 rounded-lg shadow-md">
+        <div class="flex flex-col max-w-sm px-8 py-6 mx-auto bg-stone-500 rounded-lg shadow-md">
             <div class="flex items-center justify-center"><a href="#"
                     class="px-2 py-1 text-sm text-white bg-gray-600 rounded hover:bg-gray-500">{{ $post->category->name }}</a>
             </div>
