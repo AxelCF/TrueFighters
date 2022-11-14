@@ -6,9 +6,17 @@
         </h2>
     </x-slot> --}}
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl pt-20 sm:px-6 lg:px-8">
+
+        <div>
+            @foreach ($errors->all() as $error)
+                <span class="block text-red-500">{{ $error }}</span>
+            @endforeach
+        </div>
 
         <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" class="mt-10">
+
+            @csrf
 
             <x-label for="title" value="Titre de l'article" />
             <x-input id="title" name="title" />
