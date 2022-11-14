@@ -21,7 +21,7 @@ class Post extends Model
     {
         parent::boot();
         self::creating(function($post){
-            $post->user()->associate(auth()-user()->id);
+            $post->user()->associate(auth()->user()->id);
             $post->category()->associate(request()->category);
         });
     }

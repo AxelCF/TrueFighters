@@ -28,7 +28,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = $this->repository
-                      ->with(['category', 'user'])
+                      ->with(['category', 'user'])->latest()
                     //   ->orderBy('created_at', 'desc')
                       ->paginate(5);
                       
