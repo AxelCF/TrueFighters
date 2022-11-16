@@ -24,9 +24,17 @@
                         {{ __('Twitch') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                        {{ __('Créer un article') }}
-                    </x-jet-nav-link>
+                    @if (Auth::check() && Auth::user()->role == 'admin')
+                        <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                            {{ __('Créer un article') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                            {{ __('Admin') }}
+                        </x-jet-nav-link>
+                    @else
+                    @endif
+
                 </div>
             </div>
 

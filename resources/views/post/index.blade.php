@@ -11,7 +11,9 @@
         <div class="px-6 py-8 mt-20">
 
             @if (session('success'))
-                {{ session('success') }}
+                <div class="text-green-500">
+                    {{ session('success') }}
+                </div>
             @endif
 
             <div class="container flex justify-between mx-auto">
@@ -36,18 +38,19 @@
                                 <div class="flex items-center justify-between">
                                     <span
                                         class="font-light text-white">{{ $post->created_at->format('d M Y') }}</span><a
-                                        href="#"class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">{{ $post->category->name }}</a>
+                                        href="/articles?page=1&search=category.id:{{ $post->category->id }}"class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">{{ $post->category->name }}</a>
                                 </div>
-                                <div class="mt-2"><a href="#"
+                                <div class="mt-2"><a href="{{ route('posts.show', $post) }}"
                                         class="text-2xl font-bold text-white hover:underline">{{ $post->title }}</a>
                                     <p class="mt-2 text-white">{{ Str::limit($post->content, 120) }}</p>
                                 </div>
                                 <div class="flex items-center justify-between mt-4">
-                                    <a href="#" class="text-gray-400 hover:text-white hover:underline">lire
+                                    <a href="{{ route('posts.show', $post) }}"
+                                        class="text-gray-400 hover:text-white hover:underline">lire
                                         plus</a>
                                     <div>
                                         <a href="#" class="flex items-center">
-                                            <img src={{ $post->user->profile_photo_path ?? 'https://ui-avatars.com/api/?name=?&color=7F9CF5&background=EBF4FF' }}
+                                            <img src={{ $post->user->profile_photo_url ?? 'https://ui-avatars.com/api/?name=?&color=7F9CF5&background=EBF4FF' }}
                                                 alt="avatar"
                                                 class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
                                             <h1 class="font-bold text-white hover:underline">

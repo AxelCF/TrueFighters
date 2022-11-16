@@ -69,7 +69,7 @@ class PostController extends Controller
 
         ]);
 
-        return redirect()->route('dashboard')->with('success', 'Votre article a été créé');
+        return redirect()->route('posts.index')->with('success', 'Votre article a été créé');
     }
 
     /**
@@ -80,7 +80,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('post.show', compact('post'));
     }
 
     /**
