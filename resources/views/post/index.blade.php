@@ -18,18 +18,18 @@
 
             <div class="container flex justify-between mx-auto">
                 <div class="w-full lg:w-8/12">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-around flex-wrap sm:justify-between ">
                         <h1 class="text-xl font-bold text-neutral-50 md:text-2xl">Articles</h1>
-                        <form id='filter-form' class="flex justify-between">
-                            <input id="search_input" name="title" type="text" class="mx-5"
+                        <form id='filter-form' class="grid grid-rows-3 grid-flow-col gap-4 sm:flex justify-between">
+                            <input id="search_input" name="title" type="text" class="mx-5 rounded-lg"
                                 placeholder="Rechercher un article">
-                            <select id="search_select" name='created_at'
-                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <select id="search_select" name='created_at' class="mx-5 rounded-lg">
                                 <option value="">Filter</option>
                                 <option value="desc">Newest</option>
                                 <option value="asc">Oldest</option>
                             </select>
-                            <button id="search_submit" class="px-2 mx-5 bg-blue-300" type="submit">Rechercher</button>
+                            <button id="search_submit" class="px-2 mx-5 bg-blue-300 rounded-lg"
+                                type="submit">Rechercher</button>
                         </form>
                     </div>
                     @foreach ($posts as $post)
@@ -38,7 +38,7 @@
                                 <div class="flex items-center justify-between">
                                     <span
                                         class="font-light text-white">{{ $post->created_at->format('d M Y') }}</span><a
-                                        href="/articles?page=1&search=category.id:{{ $post->category->id }}"class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">{{ $post->category->name }}</a>
+                                        href="/articles?page=1&search=category.id:{{ $post->category->id }}"class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500 text-center">{{ $post->category->name }}</a>
                                 </div>
                                 <div class="mt-2"><a href="{{ route('posts.show', $post) }}"
                                         class="text-2xl font-bold text-white hover:underline">{{ $post->title }}</a>
