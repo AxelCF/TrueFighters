@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/articles', [PostController::class, 'index'])->name('posts.index');
+
 Route::resource('posts', PostController::class)->except('index');
+
+// Route::middleware(['auth'])->group(function (){
+
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+// });
+
+Route::get('/', function () {
+    return view('accueil');
+})->name('accueil');
 
 Route::get('/twitch', function (){
     return view('stream.twitch');
@@ -35,16 +48,12 @@ Route::middleware([
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
-// Route::middleware([
-//     'auth:sanctum',
-//     'admin',
-//     // config('jetstream.auth_session'),
-//     'verified'
-//     ])->group(function () {
-//         Route::get('/admin', function () {
-//             return view('admin.index');
-//     })->name('admin');
-// }); 
+
+Route::middleware([
+    'auth:sanctum',
+    // 'admin',
+    config('jetstream.auth_session'),
+    'verified'
+    ])->group(function () {
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+}); 

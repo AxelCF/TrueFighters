@@ -10,8 +10,7 @@
 
             <div class="xs:flex xs:justify-center lg:block">
                 <iframe
-                    class="lg:fixed right-0 bottom-0 h-[calc(100%_-_63px)] sm:w-11/12 lg:w-2/6 xs:w-full
-                "
+                    class="h-96 lg:fixed right-0 bottom-0 lg:h-[calc(100%_-_63px)] sm:w-11/12 lg:w-2/6 xs:w-full               "
                     id="twitch-chat-embed "
                     src="https://www.twitch.tv/embed/esl_csgo/chat?darkpopout&parent=127.0.0.1&parent=localhost"
                     width="340px">
@@ -21,12 +20,12 @@
 
         </div>
 
-        <div class="pt-10 pb-10 grid grid-rows-3 grid-flow-col gap-4 justify-around">
-            <div><img src="images/twitter.png" alt="twitter" /></div>
-            <div><img src="images/facebook.png" alt="facebook" /></div>
-            <div><img src="images/discord.png" alt="discord" /></div>
-            <div><img src="images/youtube.png" alt="youtube" /></div>
-            <div><img src="images/design.png" alt="design" /></div>
+        <div class="pt-10 pb-4 grid grid-rows-3 grid-flow-col gap-4 justify-around lg:w-4/6">
+            <div><a href="http://"><img src="images/twitter.png" alt="twitter" /></div></a>
+            <div><a href="http://"><img src="images/facebook.png" alt="facebook" /></div></a>
+            <div><a href="http://"><img src="images/discord.png" alt="discord" /></div></a>
+            <div><a href="http://"><img src="images/youtube.png" alt="youtube" /></div></a>
+            <div><a href="http://"><img src="images/design.png" alt="design" /></div></a>
         </div>
     </div>
 

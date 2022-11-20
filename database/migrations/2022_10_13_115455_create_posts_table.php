@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text('content');
             $table->string('image');
             $table->timestamps();
-
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Category::class);
         });
