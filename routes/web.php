@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +30,7 @@ Route::resource('posts', PostController::class)->except('index');
 
 // });
 
-Route::get('/', function () {
-    return view('accueil');
-})->name('accueil');
+Route::get('/', [IndexController::class, 'index'])->name('accueil');
 
 Route::get('/twitch', function (){
     return view('stream.twitch');
@@ -39,9 +39,10 @@ Route::get('/twitch', function (){
 Route::middleware([
     'admin'
     ])->group(function () {
-        Route::get('/admin', function () {
-            return view('admin.admin');
-    })->name('admin');
+            Route::get('/admin/user', [AdminController::class, 'users'])->name('admin.user');
+            Route::get('/admin/posts', [AdminController::class, 'posts'])->name('admin.posts');
+           
+
 });
 
 // Route::get('/', function () {

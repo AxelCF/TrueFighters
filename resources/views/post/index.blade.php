@@ -65,13 +65,12 @@
                     <div class="mt-8">
                         {{ $posts->links() }}
                     </div>
+
                 </div>
                 @include('partials.sidebar')
             </div>
+
         </div>
-        @push('scripts')
-            <script src="{{ asset('js/filter-select.js') }}"></script>
-        @endPush
         @include('partials.footer')
     </div>
 

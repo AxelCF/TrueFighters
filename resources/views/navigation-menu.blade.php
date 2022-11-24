@@ -29,7 +29,7 @@
                             {{ __('Créer un article') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                        <x-jet-nav-link href="{{ route('admin.user') }}" :active="request()->routeIs('admin')">
                             {{ __('Admin') }}
                         </x-jet-nav-link>
                     @else
