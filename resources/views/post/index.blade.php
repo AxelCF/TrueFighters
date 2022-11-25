@@ -34,7 +34,7 @@
                     </div>
                     @foreach ($posts as $post)
                         <div class="mt-6">
-                            <div class="max-w-4xl px-10 py-6 mx-auto bg-stone-600 rounded-lg shadow-md">
+                            <div class="max-w-4xl px-10 py-6 mx-auto bg-stone-500 rounded-lg shadow-md">
                                 <div class="flex items-center justify-between">
                                     <span
                                         class="font-light text-white">{{ $post->created_at->format('d M Y') }}</span><a

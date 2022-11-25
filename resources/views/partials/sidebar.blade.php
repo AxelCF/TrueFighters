@@ -1,7 +1,7 @@
 <div class="hidden w-4/12 -mx-8 lg:block">
     <div class="px-8">
         <h1 class="mb-4 text-xl font-bold text-neutral-50">Auteurs</h1>
-        <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-stone-600 rounded-lg shadow-md">
+        <div class="flex flex-col max-w-sm px-6 py-4 mx-auto bg-stone-500 rounded-lg shadow-md">
             <ul class="-mx-4">
                 @foreach ($authors as $author)
                     @if ($author->profile_photo_path == null)
@@ -30,11 +30,11 @@
     </div>
     <div class="px-8 mt-10">
         <h1 class="mb-4 text-xl font-bold text-neutral-50">Categories</h1>
-        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-stone-600 rounded-lg shadow-md">
+        <div class="flex flex-col max-w-sm px-4 py-6 mx-auto bg-stone-500 rounded-lg shadow-md">
             <ul>
                 @foreach ($categories as $category)
                     <li><a href="/articles?page=1&search=category.id:{{ $category->id }}"
-                            class="mx-1 font-bold text-white hover:text-gray-600 hover:underline">-
+                            class="mx-1 font-bold text-white hover:text-gray-300 hover:underline">-
                             {{ $category->name }}</a></li>
                 @endforeach
             </ul>

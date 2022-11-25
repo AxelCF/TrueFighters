@@ -41,6 +41,7 @@ Route::middleware([
     ])->group(function () {
             Route::get('/admin/user', [AdminController::class, 'users'])->name('admin.user');
             Route::get('/admin/posts', [AdminController::class, 'posts'])->name('admin.posts');
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
            
 
 });
@@ -56,5 +57,4 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
     ])->group(function () {
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 }); 

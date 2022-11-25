@@ -1,21 +1,11 @@
 <x-app-layout>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-        }
-
         .mySlides {
             display: none;
         }
 
-        img {
-            vertical-align: middle;
-        }
+
 
         /* Slideshow container */
         .slideshow-container {
@@ -24,36 +14,6 @@
             margin: auto;
         }
 
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
 
         .active {
             background-color: #717171;
@@ -74,28 +34,38 @@
                 opacity: 1
             }
         }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px
-            }
-        }
     </style>
     </head>
 
     <body>
-        <div class="px-6 pt-20">
-            <div class="w-full lg:w-8/12">
-                <div class="flex items-center justify-around flex-wrap sm:justify-between ">
-                    <a href="{{ route('posts.index') }}">
-                        <h1 class="text-xl font-bold text-neutral-50 md:text-2xl">Les derniers Articles</h1>
-                    </a>
+
+        <div style="background-image: url('{{ asset('images/axel.png') }}')" class="pt-20">
+            <div class="py-10  flex justify-center">
+
+                <div class=" w-full">
+                    <div class="flex justify-center">
+                        <div class="w-96 justify-center">
+                            <div>
+                                <h1 class="text-2xl text-center font-bold text-shadow text-white md:text-2xl"
+                                    style="text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">
+                                    Nous ne sommes pas ennemis, mais amis ! Nous ne devons pas être ennemis. Même si la
+                                    passion nous déchire, elle ne doit pas briser l’affection qui nous lie...</h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-
+        <div class="px-6 pt-20">
+            <div class="w-full lg:w-8/12">
+                <div class="flex items-center justify-around flex-wrap sm:justify-between ">
+                    <a href="{{ route('posts.index') }}">
+                        <h1 class="text-xl font-bold text-neutral-50 md:text-2xl">Les dernières News</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <div class="slideshow-container">
             @foreach ($posts as $post)
@@ -128,21 +98,31 @@
 
 
         </div>
-        <div class="px-6 mt-40">
-            <div class="w-full lg:w-8/12">
-                <div class="flex items-center justify-around flex-wrap sm:justify-between ">
-                    <a href="{{ route('twitch') }}">
-                        <h1 class="text-xl font-bold text-neutral-50 md:text-2xl">Le Twitch</h1>
-                    </a>
+        <div style="background-image: url('{{ asset('images/banner_twitch.png') }}')">
+            <div class="py-10 mt-40  flex justify-center">
+
+                <div class=" w-full">
+                    <div class="">
+                        <div class="w-full ">
+                            <div class="pl-6">
+                                <a href="{{ route('twitch') }}">
+                                    <h1 class="text-xl font-bold text-neutral-50 md:text-2xl">Le Twitch</h1>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="z-10 flex justify-center m-0 p-0">
+                        {{-- <iframe class="lg:w-3/6 aspect-video sm:w-4/6 xs:w-full "
+                            src="https://player.twitch.tv/?channel=esl_csgo&parent=127.0.0.1&parent=localhost"
+                            allowfullscreen="true"> --}}
+                        <iframe class="aspect-video w-7/12"
+                            src="https://player.twitch.tv/?channel=esl_csgo&parent=127.0.0.1&parent=localhost"
+                            allowfullscreen="true">
+                        </iframe>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="pb-20 xs:flex xs:justify-center lg:justify-center">
-            <iframe class="lg:w-3/6 aspect-video sm:w-4/6 xs:w-full "
-                src="https://player.twitch.tv/?channel=esl_csgo&parent=127.0.0.1&parent=localhost"
-                allowfullscreen="true">
-            </iframe>
         </div>
 
         @push('scripts')

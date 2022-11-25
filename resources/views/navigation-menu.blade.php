@@ -29,6 +29,10 @@
                             {{ __('Créer un article') }}
                         </x-jet-nav-link>
 
+                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Gestion des articles') }}
+                        </x-jet-nav-link>
+
                         <x-jet-nav-link href="{{ route('admin.user') }}" :active="request()->routeIs('admin')">
                             {{ __('Admin') }}
                         </x-jet-nav-link>
