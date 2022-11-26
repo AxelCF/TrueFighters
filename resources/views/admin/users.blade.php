@@ -59,9 +59,11 @@
                                     <th class="px-4 py-3">Email</th>
                                     <th class="px-4 py-3">Role</th>
                                     <th class="px-4 py-3">Date</th>
+                                    <th class="px-4 py-3">Action</th>
                                 </tr>
                             </thead>
                             @foreach ($users as $user)
+                                {{-- {{ dd($user->id) }} --}}
                                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
@@ -86,6 +88,22 @@
                                                 {{ $user->role ?? 'True Guest' }} </span>
                                         </td>
                                         <td class="px-4 py-3 text-sm">{{ $user->created_at }}</td>
+                                        <td class="px-4 py-3 text-xs">
+                                            <span
+                                                class="px-2 py-1 font-semibold leading-tight rounded-full bg-red-700 text-white"><a
+                                                    href="#"
+                                                    onclick="event.preventDefault;
+                                                    document.getElementById('destroy-user-form-{{ $user->id }}').submit();">
+                                                    Supprimer</a>
+
+                                                <form action="{{ route('admin.destroy', $user->id) }}" method="post"
+                                                    id="destroy-user-form-{{ $user->id }}" class="contents">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                </a>
+                                            </span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             @endforeach

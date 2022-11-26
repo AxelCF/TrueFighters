@@ -23,7 +23,7 @@ class Admin
     }
     
     else {
-        return redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+        return redirect()->route('login');
     }
 }
 }

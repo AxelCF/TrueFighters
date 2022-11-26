@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Models\User;
 use App\Repositories\PostRepositoryEloquent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -33,11 +35,23 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users =  User::select('profile_photo_path', 'name','email', 'role', 'created_at')->orderBy('role', 'DESC' )->get();
+        $users =  User::select('profile_photo_path', 'name','email', 'role', 'created_at', 'id')->orderBy('role', 'DESC' )->get();
 
         
         
         return view('admin.users', compact('users'));
     }
 
+    public function destroy( $id )
+    {
+        // $users = User::where('*')->delete();
+        $id = user::find($id);
+        $id->posts()->delete();
+        $id->delete();
+     
+    
+        
+        return redirect()->route('accueil')->with('success', 'l\'utilisateur a été supprimé');
+
+     }
 }
