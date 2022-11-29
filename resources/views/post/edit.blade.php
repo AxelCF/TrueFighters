@@ -38,7 +38,7 @@
                     </select>
                 </div>
 
-                <x-button class="mt-5">Modifier le l'article</x-button>
+                <x-button class="mt-5">Modifier l'article</x-button>
 
             </form>
             <div>
