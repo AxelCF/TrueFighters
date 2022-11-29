@@ -89,20 +89,25 @@
                                         </td>
                                         <td class="px-4 py-3 text-sm">{{ $user->created_at }}</td>
                                         <td class="px-4 py-3 text-xs">
-                                            <span
-                                                class="px-2 py-1 font-semibold leading-tight rounded-full bg-red-700 text-white"><a
-                                                    href="#"
-                                                    onclick="event.preventDefault;
+                                            @if ($user->role === 'admin')
+                                            @else
+                                                <span
+                                                    class="px-2 py-1 font-semibold leading-tight rounded-full bg-red-700 text-white"><a
+                                                        href="#"
+                                                        onclick="event.preventDefault;
                                                     document.getElementById('destroy-user-form-{{ $user->id }}').submit();">
-                                                    Supprimer</a>
+                                                        Supprimer</a>
 
-                                                <form action="{{ route('admin.destroy', $user->id) }}" method="post"
-                                                    id="destroy-user-form-{{ $user->id }}" class="contents">
-                                                    @csrf
-                                                    @method('delete')
-                                                </form>
-                                                </a>
-                                            </span>
+                                                    <form action="{{ route('admin.destroy', $user->id) }}"
+                                                        method="post" id="destroy-user-form-{{ $user->id }}"
+                                                        class="contents">
+                                                        @csrf
+                                                        @method('delete')
+                                                    </form>
+                                                    </a>
+                                                </span>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 </tbody>

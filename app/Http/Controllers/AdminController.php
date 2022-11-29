@@ -45,13 +45,19 @@ class AdminController extends Controller
     public function destroy( $id )
     {
         // $users = User::where('*')->delete();
-        $id = user::find($id);
+        if (User::select('role')!='admin'){
+            $id = user::find($id);
         $id->posts()->delete();
         $id->delete();
      
     
         
-        return redirect()->route('accueil')->with('success', 'l\'utilisateur a été supprimé');
+        return redirect()->route('admin.user')->with('success', 'l\'utilisateur a été supprimé');
+        }else{
+            abort(403);
+        }
+        
+        
 
      }
 }
