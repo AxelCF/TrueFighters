@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
-                    <x-jet-nav-link href="{{ route('accueil') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('accueil') }}" :active="request()->routeIs('accueil')">
                         {{ __('Accueil') }}
                     </x-jet-nav-link>
 
