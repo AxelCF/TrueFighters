@@ -75,7 +75,7 @@
                                 </tr>
                             </thead>
                             @foreach ($posts as $post)
-                                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                                <tbody class="bg-white divide-y divide-gray-700 ">
                                     <tr
                                         class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
                                         <td class="px-4 py-3">

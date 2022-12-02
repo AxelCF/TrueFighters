@@ -42,12 +42,10 @@ Route::middleware([
             Route::get('/admin/user', [AdminController::class, 'users'])->name('admin.user');
             Route::get('/admin/posts', [AdminController::class, 'posts'])->name('admin.posts');
             Route::delete('/admin/destroy/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-           
-
 });
-
-// Route::get('/', function () {
+        
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // Route::get('/', function () {
 //     return view('welcome');
 // });
 

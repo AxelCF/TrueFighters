@@ -89,8 +89,7 @@
                                         </td>
                                         <td class="px-4 py-3 text-sm">{{ $user->created_at }}</td>
                                         <td class="px-4 py-3 text-xs">
-                                            @if ($user->role === 'admin')
-                                            @else
+                                            @if ($user->role != 'admin')
                                                 <span
                                                     class="px-2 py-1 font-semibold leading-tight rounded-full bg-red-700 text-white"><a
                                                         href="#"

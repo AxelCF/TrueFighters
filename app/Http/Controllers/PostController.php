@@ -140,7 +140,6 @@ class PostController extends Controller
         if (Gate::allows('destroy-post-form', $post)) {
             abort(403);
         }
-        // $post = Post::where('id',$id)->delete();
         $post->delete();
     
         return redirect()->route('posts.index')->with('success', 'Votre article a été supprimé');

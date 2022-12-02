@@ -35,9 +35,8 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users =  User::select('profile_photo_path', 'name','email', 'role', 'created_at', 'id')->orderBy('role', 'DESC' )->get();
-
-        
+        $users =  User::select('profile_photo_path', 'name','email', 'role', 'created_at', 'id')
+        ->orderBy('role', 'DESC' )->get();    
         
         return view('admin.users', compact('users'));
     }
@@ -52,12 +51,9 @@ class AdminController extends Controller
      
     
         
-        return redirect()->route('admin.user')->with('success', 'l\'utilisateur a été supprimé');
+        return redirect()->route('admin.user');
         }else{
             abort(403);
         }
-        
-        
-
      }
 }
