@@ -220,6 +220,21 @@
             <x-jet-responsive-nav-link href="{{ route('twitch') }}" :active="request()->routeIs('twitch')">
                 {{ __('Twitch') }}
             </x-jet-responsive-nav-link>
+
+            @if (Auth::check() && Auth::user()->role == 'admin')
+                <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                    {{ __('Créer un article') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Gestion des articles') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('admin.user') }}" :active="request()->routeIs('admin')">
+                    {{ __('Admin') }}
+                </x-jet-responsive-nav-link>
+            @else
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

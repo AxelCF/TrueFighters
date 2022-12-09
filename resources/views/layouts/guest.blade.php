@@ -19,8 +19,11 @@
 </head>
 
 <body>
-    <div class="font-sans text-gray-900 antialiased">
-        {{ $slot }}
+    <div class="min-h-screen bg-neutral-800">
+        @livewire('navigation-menu')
+        <div class="font-sans text-gray-900 antialiased">
+            {{ $slot }}
+        </div>
     </div>
 </body>
 

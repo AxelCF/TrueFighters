@@ -6,11 +6,11 @@
                     {{ $post->title }}
                 </h2>
             </div>
-            <div class="lg:w-8/12 sm:w-5/6">
+            <div class="justify-center sm:w-5/6">
                 <img class="" src="{{ asset('/storage/' . $post->image) }}" alt="image">
-                <div class="m-4">
-                    {{ $post->content }}
-                </div>
+            </div>
+            <div class="mt-9 w-5/6">
+                {{ $post->content }}
             </div>
         </div>
     </div>
