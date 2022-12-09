@@ -92,13 +92,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {
-
-        if (Gate::denies('update-post', $post)) {
-            abort(403);
-        }
-
-        
+    {       
         $categories = Category::all();
 
         return view('post.edit', compact('post', 'categories'));
@@ -137,9 +131,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if (Gate::allows('destroy-post-form', $post)) {
-            abort(403);
-        }
         $post->delete();
     
         return redirect()->route('posts.index')->with('success', 'Votre article a été supprimé');
