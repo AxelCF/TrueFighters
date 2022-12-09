@@ -118,7 +118,7 @@
                             src="https://player.twitch.tv/?channel=esl_csgo&parent=127.0.0.1&parent=localhost"
                             allowfullscreen="true"> --}}
                         <iframe class="aspect-video w-7/12"
-                            src="https://player.twitch.tv/?channel=esl_csgo&parent=127.0.0.1&parent=localhost"
+                            src="https://player.twitch.tv/?channel=akito_soma&parent=127.0.0.1&parent=localhost"
                             allowfullscreen="true">
                         </iframe>
                     </div>
