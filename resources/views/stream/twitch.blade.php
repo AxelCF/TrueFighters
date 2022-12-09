@@ -30,22 +30,3 @@
     </div>
 
 </x-app-layout>
-
-
-
-{{-- position: absolute;
-width: 340px;
-right: 0px;
-bottom: 0px;
-transition: all 0.25s ease-out 0s;
-z-index: 200;
-pointer-events: all;
-height: 100%; --}}
-
-{{-- height: calc(100% - 150px);
-position: absolute;
-top: 150px;
-width: 100%;
-/* pointer-events: none; */ --}}
-
-{{-- class="fixed right-0 bottom-0" --}}
